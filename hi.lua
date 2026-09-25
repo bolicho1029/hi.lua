@@ -1,63 +1,63 @@
-local Arrayfield = загрузочная строка(игра"":HttpGet("https://pastebin.com/raw/iiuX23pg"))()
-local NotificationHolder = загрузочная строка("игра:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Arrayfield = loadstring(game:HttpGet("https://pastebin.com/raw/iiuX23pg"))()
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
  
 local Window = Arrayfield:CreateWindow({
- Name = "Полностью сбалансированный босс Soul Ops Раш | 11717233041",
- LoadingTitle = "Сделано Паоло [Спасибо Некаи за большую помощь!]",
- LoadingSubtitle = "по сценарию",
- Сохранение конфигурации = {
- Включено = true,
- FolderName = nil, -- Создайте пользовательскую папку для вашего хаба / игры
- Имя файла = "Big Hub"
+ Name = "Totally Balanced Soul Ops Boss Rush | 11717233041",
+ LoadingTitle = "Made by Paolo [Thanks to Nekai for helping Alot!]",
+ LoadingSubtitle = "by Scripttale",
+ ConfigurationSaving = {
+ Enabled = true,
+ FolderName = nil, -- Create a custom folder for your hub/game
+ FileName = "Big Hub"
    },
  Discord = {
- Включено = true,
- Пригласить = "scripttale", - Код приглашения в Discord, не включать discord.gg /. Например. discord.gg/ABCD было бы ABCD
- RememberJoins = true  - Установите для этого значение false, чтобы они присоединялись к discord каждый раз, когда они его загружают
+ Enabled = true,
+ Invite = "scripttale", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+ RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
- KeySystem = false,  - Установите значение true, чтобы использовать нашу систему ключей
- Настройки клавиш = {
-      Title = "Untitled",
- Подзаголовок = "Система ключей",
- Примечание = "Способ получения ключа не предусмотрен",
- FileName = "Key", - Рекомендуется использовать что-то уникальное, поскольку другие скрипты, использующие Rayfield, могут перезаписать ваш ключевой файл
- SaveKey = true, - Ключ пользователя будет сохранен, но если вы измените ключ, они не смогут использовать ваш скрипт
- GrabKeyFromSite = false, -- Если это верно, задайте приведенный ниже ключ для необработанного сайта, с которого Rayfield должен получить ключ
- Key = {"Hello"} -- Список ключей, которые будут приняты системой, может представлять собой необработанные ссылки на файлы (pastebin, github и т.д.) Или простые строки ("hello", "key22")
+ KeySystem = false, -- Set this to true to use our key system
+ KeySettings = {
+ Title = "Untitled",
+ Subtitle = "Key System",
+ Note = "No method of obtaining the key is provided",
+ FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+ SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+ GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+ Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-если игра.Игроки.Локальный игрок.Игровой интерфейс:Найди первого ребенка("TouchGui") тогда
-(загрузочнаяигра:HttpGet("https://pastebin.com/raw/9pRCjvVs"))() --Переключатель Arrayfield
-ещё 
-конец
-локальная вкладка = Окно"":CreateTab("Главная", 4483362458)
-local GoldEarned = Вкладка " ":Метка создания("Заработанные монеты: ")
-локальная кнопка = Вкладка:createButton({
- Name = "Мгновенное убийство босса",
- Обратный вызов = функция()
-sethiddenproperty(игра.Игроки.Локальный проигрыватель, "SimulationRadius", 69696969)
- sethiddenproperty(игра.Игроки.LocalPlayer, "MaxSimulationRadius", математика.огромная)
+if game.Players.LocalPlayer.PlayerGui:FindFirstChild("TouchGui") then
+loadstring(game:HttpGet("https://pastebin.com/raw/9pRCjvVs"))() --Arrayfield toggler
+else 
+end
+local Tab = Window:CreateTab("Main", 4483362458)
+local GoldEarned = Tab:CreateLabel("Coins Earned: ")
+local Button = Tab:CreateButton({
+   Name = "Insta-Kill Boss",
+   Callback = function()
+sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 69696969)
+               sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", math.huge)
                for i, v in ipairs(game.Workspace:GetDescendants()) do
                   if v:IsA("Humanoid") and v.Parent:FindFirstChild("NPCTAG") and v.Parent:FindFirstChild("Zombie") then
- Notification:Notify(
+                     Notification:Notify(
             {
- Title = "Notification",
- Description = "Proceed To kill Boss Named: " .. v.Parent.Name
+                Title = "Notification",
+                Description = "Proceed To kill Boss Named: " .. v.Parent.Name
             },
             {
- OutlineColor = Color3.fromRGB(76, 0, 130),
- Time = 20,
- Type = "default"
+                OutlineColor = Color3.fromRGB(76, 0, 130),
+                Time = 20,
+                Type = "default"
             }
         )
- wait(20)
- v.Parent:FindFirstChild("Голова"):Destroy()
- v.Parent:FindFirstChild("Торс"):Destroy()
- v.Health = 0
- v.MaxHealth = 0
+                     wait(20)
+                     v.Parent:FindFirstChild("Head"):Destroy()
+                     v.Parent:FindFirstChild("Torso"):Destroy()
+                     v.Health = 0
+                     v.MaxHealth = 0
                      
-                  конец 
+                  end 
                end
        settings().Physics.AllowSleep = false
             settings().Physics.ThrottleAdjustTime = math.huge - math.huge
@@ -134,28 +134,28 @@ local Toggle = Tab:CreateToggle({
             settings().Physics.ThrottleAdjustTime = math.huge - math.huge
          end)
       elseif repsosowown then
- повторное включение:Отключить()
- Игра.Игроки.Локальный игрок.Персонаж.HumanoidRootPart.Закрепленный = false
-         конец
-      конец)
-   конец,
+         repsosowown:Disconnect()
+         game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+         end
+      end)
+   end,
 })
-локальный переключатель = Вкладка:CreateToggle({
- Name = "Спам True Paolo",
- Текущее значение = false,
- Флаг = "SpanTurePoalo",
- Обратный вызов = функция(t)
-   если t, то
-     повторить
- подождать(1)
- детектор фейерверков(игра.Рабочее пространство:FindFirstChild("Пабло").ClickDetector)
-       пока t == false
-     конец
-   конец,
+local Toggle = Tab:CreateToggle({
+   Name = "Spam True Paolo",
+   CurrentValue = false,
+   Flag = "SpanTurePoalo",
+   Callback = function(t)
+   if t then
+     repeat
+       wait(1)
+       fireclickdetector(game.Workspace:FindFirstChild("Pablo....").ClickDetector)
+       until t == false
+     end
+   end,
 })
-local CoinsEan = игра.Игроки.Локальный игрок.статистика лидеров.Монеты.Стоимость
+local CoinsEan = game.Players.LocalPlayer.leaderstats.Coins.Value
  
-пока ждите(1) делайте 
- Получено золото:Набор("Заработанные монеты" .. игра.Игроки.Локальный игрок.статистика лидеров.Монеты.Значение - CoinsEan)
-  конец
+while wait(1) do 
+  GoldEarned:Set("Coins Earned: " .. game.Players.LocalPlayer.leaderstats.Coins.Value - CoinsEan)
+  end
 setfpscap(60)

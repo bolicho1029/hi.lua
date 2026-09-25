@@ -1,61 +1,73 @@
-local Arrayfield = loadstring(game:HttpGet("https://pastebin.com/raw/iiuX23pg"))()
-local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/main"))()
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro2/main/ui2"))()
-local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro/main/ui"))()
+local Arrayfield = загрузочная строка(игра"":HttpGet("https://pastebin.com/raw/iiuX23pg"))()
+local NotificationHolder = загрузочная строка("игра:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
  
 local Window = Arrayfield:CreateWindow({
- Name = "Totally Balanced Soul Ops Boss Rush | 11717233041",
- LoadingTitle = "Made by Paolo [Thanks to Nekai for helping Alot!]",
- LoadingSubtitle = "by Scripttale",
- ConfigurationSaving = {
- Enabled = true,
- FolderName = nil, -- Create a custom folder for your hub/game
- FileName = "Big Hub"
+ Name = "Полностью сбалансированный босс Soul Ops Раш | 11717233041",
+ LoadingTitle = "Сделано Паоло [Спасибо Некаи за большую помощь!]",
+ LoadingSubtitle = "по сценарию",
+ Сохранение конфигурации = {
+ Включено = true,
+ FolderName = nil, -- Создайте пользовательскую папку для вашего хаба / игры
+ Имя файла = "Big Hub"
    },
  Discord = {
-      Enabled = true,
- Invite = "scripttale", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
- RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+ Включено = true,
+ Пригласить = "scripttale", - Код приглашения в Discord, не включать discord.gg /. Например. discord.gg/ABCD было бы ABCD
+ RememberJoins = true  - Установите для этого значение false, чтобы они присоединялись к discord каждый раз, когда они его загружают
    },
- KeySystem = false, -- Set this to true to use our key system
- KeySettings = {
- Title = "Untitled",
- Subtitle = "Key System",
- Note = "No method of obtaining the key is provided",
- FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
- SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
- GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
- Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+ KeySystem = false,  - Установите значение true, чтобы использовать нашу систему ключей
+ Настройки клавиш = {
+      Title = "Untitled",
+ Подзаголовок = "Система ключей",
+ Примечание = "Способ получения ключа не предусмотрен",
+ FileName = "Key", - Рекомендуется использовать что-то уникальное, поскольку другие скрипты, использующие Rayfield, могут перезаписать ваш ключевой файл
+ SaveKey = true, - Ключ пользователя будет сохранен, но если вы измените ключ, они не смогут использовать ваш скрипт
+ GrabKeyFromSite = false, -- Если это верно, задайте приведенный ниже ключ для необработанного сайта, с которого Rayfield должен получить ключ
+ Key = {"Hello"} -- Список ключей, которые будут приняты системой, может представлять собой необработанные ссылки на файлы (pastebin, github и т.д.) Или простые строки ("hello", "key22")
    }
 })
-if game.Players.LocalPlayer.PlayerGui:FindFirstChild("TouchGui") then
-loadstring(game:HttpGet("https://pastebin.com/raw/9pRCjvVs"))() --Arrayfield toggler
-else 
-end
-local Tab = Window:CreateTab("Main", 4483362458)
-local GoldEarned = Tab:CreateLabel("Coins Earned: ")
-local servershutdown = Tab:CreateLabel("")
-local Button = Tab:CreateButton({
- Name = "Insta-Kill Boss",
- Callback = function()
-sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 69696969)
- sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", math.huge)
+если игра.Игроки.Локальный игрок.Игровой интерфейс:Найди первого ребенка("TouchGui") тогда
+(загрузочнаяигра:HttpGet("https://pastebin.com/raw/9pRCjvVs"))() --Переключатель Arrayfield
+ещё 
+конец
+локальная вкладка = Окно"":CreateTab("Главная", 4483362458)
+local GoldEarned = Вкладка " ":Метка создания("Заработанные монеты: ")
+локальная кнопка = Вкладка:createButton({
+ Name = "Мгновенное убийство босса",
+ Обратный вызов = функция()
+sethiddenproperty(игра.Игроки.Локальный проигрыватель, "SimulationRadius", 69696969)
+ sethiddenproperty(игра.Игроки.LocalPlayer, "MaxSimulationRadius", математика.огромная)
                for i, v in ipairs(game.Workspace:GetDescendants()) do
-                  if v:IsA("Humanoid") and v.Parent:FindFirstChild("Zombie") then
-v:TakeDamage(v.Health)
-                  elseif v.Parent:FindFirstChild("invincible") then
- NotifyLib.prompt('Notify', 'Failed.', 2)
-                  end 
+                  if v:IsA("Humanoid") and v.Parent:FindFirstChild("NPCTAG") and v.Parent:FindFirstChild("Zombie") then
+ Notification:Notify(
+            {
+ Title = "Notification",
+ Description = "Proceed To kill Boss Named: " .. v.Parent.Name
+            },
+            {
+ OutlineColor = Color3.fromRGB(76, 0, 130),
+ Time = 20,
+ Type = "default"
+            }
+        )
+ wait(20)
+ v.Parent:FindFirstChild("Голова"):Destroy()
+ v.Parent:FindFirstChild("Торс"):Destroy()
+ v.Health = 0
+ v.MaxHealth = 0
+                     
+                  конец 
                end
        settings().Physics.AllowSleep = false
-       settings().Physics.ThrottleAdjustTime = math.huge - math.huge
+            settings().Physics.ThrottleAdjustTime = math.huge - math.huge
    end,
 })
-getgenv().AutofarmMode = "Normal"
+getgenv().AutofarmMode = nil
 local Dropdown = Tab:CreateDropdown({
    Name = "Autofarm Mode",
-   Options = {"Normal","SkipHorror","SkipInk"},
-   CurrentOption = {"Normal"},
+   Options = {"None","Normal","SkipHorror","SkipInk [Possibly Fastest]"},
+   CurrentOption = {"None"},
    MultipleOptions = false,
    Flag = "AutofarmMode", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Option)
@@ -63,146 +75,87 @@ getgenv().AutofarmMode = Option
    end,
 })
  
- 
-function StartGame()
-firetouchinterest(game.Workspace:FindFirstChild("Start").Part,game.Players.LocalPlayer.Character.HumanoidRootPart,0)
-firetouchinterest(game.Workspace:FindFirstChild("Start").Part,game.Players.LocalPlayer.Character.HumanoidRootPart,1)
-end
-local autofarmconect
+local repsosowown
 local Toggle = Tab:CreateToggle({
    Name = "Autofarm",
-   Info = {
-            Title = 'Autofarm',
-            Image = '',
-            Description = 'Just A Autofarm lol',
-        },
    CurrentValue = false,
    Flag = "Autofarm",
    Callback = function(Value)
-      _G.Autofarm = Value
-     if _G.Autofarm then 
-       autofarmconect = game:GetService("RunService").Heartbeat:Connect(function()
-       if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Wave Counter").WAVE:FindFirstChildOfClass("TextLabel").Text == "Wave: 0/0" then
+      getgenv().Autofarm = Value
+      pcall(function()
+      if getgenv().Autofarm and getgenv().AutofarmMode ~= "None" then
+         repsosowown = game:GetService("RunService").RenderStepped:Connect(function()
+          
+            if game.Players.LocalPlayer.PlayerGui["Wave Counter"].WAVE:FindFirstChildOfClass("TextLabel").Text == "Wave: 0/0" or game.Players.LocalPlayer.PlayerGui["Wave Counter"].WAVE:FindFirstChildOfClass("TextLabel").Text == "Wave: 0/68408" then
               if getgenv().AutofarmMode == "Normal" then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-                StartGame()
-              elseif getgenv().AutofarmMode == "SkipHorror" and game.Workspace:FindFirstChild("Skippy") then
+                
+               firetouchinterest(game.Workspace:FindFirstChild("Start"):FindFirstChild("Part"), game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 0)
+               firetouchinterest(game.Workspace:FindFirstChild("Start"):FindFirstChild("Part"), game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 1)
+              elseif getgenv().AutofarmMode == "SkipHorror" then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                
              fireclickdetector(game.Workspace:FindFirstChild("Skippy").ClickDetector)
              wait(1)
-             StartGame()
-              elseif getgenv().AutofarmMode == "InkSkip" and game.Workspace:FindFirstChild("InkSkip") then 
-               fireclickdetector(game.Workspace:FindFirstChild("InkSkip").ClickDetector)
-               wait(1)
-               StartGame()
-               end
-              elseif not game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool") then
-               game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-               if game.Workspace:FindFirstChild("Door") then
-               game.Workspace:FindFirstChild("Door"):Remove()
-               end
-            game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(-2163, 4, -2355)
+             firetouchinterest(game.Workspace:FindFirstChild("Start"):FindFirstChild("Part"), game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 0)
+             firetouchinterest(game.Workspace:FindFirstChild("Start"):FindFirstChild("Part"), game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 1)
+              elseif getgenv().AutofarmMode == "SkipInk [Possibly Fastest]" then 
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                
+             fireclickdetector(game.Workspace:FindFirstChild("InkSkip").ClickDetector)
+             wait(1)
+             firetouchinterest(game.Workspace:FindFirstChild("Start"):FindFirstChild("Part"), game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 0)
+               firetouchinterest(game.Workspace:FindFirstChild("Start"):FindFirstChild("Part"), game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart"), 1)
+              end
+           
+            elseif not game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool") then
+              game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Sans[" "].Head.CFrame
+             
             elseif game.Players.LocalPlayer.PlayerGui["Wave Counter"].WAVE:FindFirstChildOfClass("TextLabel").Text == "Wave: 66/0" then
                fireclickdetector(game.Workspace:FindFirstChild("SoulKiller").ClickDetector)
-               elseif game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored == true and game.Workspace.Values.Charas.Value <= 0 then 
-                  game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-               elseif game.Workspace.Values.Charas.Value >= 1 then
-                   sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 69696969)
-                   sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", math.huge)
-                  for i,v in ipairs(game.Workspace:GetChildren()) do
-                  if v.Name ~= "REAPERSANS" and v:FindFirstChildOfClass("Humanoid") and v:FindFirstChild("Zombie") and v:FindFirstChild("NPCTAG") then
-                     game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = v:FindFirstChild("HumanoidRootPart").CFrame + CFrame.new(0,10,6) 
+            else
+               sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", 69696969)
+               sethiddenproperty(game.Players.LocalPlayer, "MaxSimulationRadius", math.huge)
+               for i, v in ipairs(game.Workspace:GetChildren()) do
+                  if v:FindFirstChildOfClass("Humanoid") and v:FindFirstChild("NPCTAG") and v:FindFirstChild("Zombie") then
+                     game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = v:FindFirstChild("HumanoidRootPart").CFrame + Vector3.new(1, 35,1)
+                     task.wait(1)
                      game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-                     wait(2)
-                     v:FindFirstChildOfClass("Humanoid"):TakeDamage(math.huge)
-                     elseif game.Workspace:FindFirstChild("AllVial") and game.Players.LocalPlayer.PlayerGui["Wave Counter"].WAVE:FindFirstChildOfClass("TextLabel").Text == "Wave: 9/0" then 
-                     for i,v in ipairs(game.Workspace.AllVial:GetDescendants()) do
-                     if v:IsA("Humanoid") then 
-                       wait(2)
-                       v:TakeDamage(math.huge)
-                     end
-                  end 
-                     end
+                     wait(20)
+                     v:FindFirstChildOfClass("Humanoid").Health = 0
+                     v:FindFirstChildOfClass("Humanoid").MaxHealth = 0
+                     wait()
+                     game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
                   end
-                  
-                   end
-               settings().Physics.AllowSleep = false
-            settings().Physics.ThrottleAdjustTime = math.huge - math.huge
-end)
- 
-     elseif autofarmconect then 
-       autofarmconect:Disconnect()
-       autofarmconect = nil
-       game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-   end 
-end,
-})
-        
-local Button = Tab:CreateButton({
-  Name = "Collect All DustDust Shard",
-   Callback = function()
-     local DustDustShardName = {
-       "P1S",
-       "P2S",
-       "P3S",
-       "P4S",
-       "P5S",
-       }
-       
-  if game.Workspace:FindFirstChild("P1S") or game.Workspace:FindFirstChild("P2S") or game.Workspace:FindFirstChild("P3S") or game.Workspace:FindFirstChild("P4S") or game.Workspace:FindFirstChild("P5S") then 
-    pcall(function()
-    fireclickdetector(game.Workspace[DustDustShardName[1]].ClickDetector)
-    fireclickdetector(game.Workspace[DustDustShardName[2]].ClickDetector)
-    fireclickdetector(game.Workspace[DustDustShardName[3]].ClickDetector)
-    fireclickdetector(game.Workspace[DustDustShardName[4]].ClickDetector)
-    fireclickdetector(game.Workspace[DustDustShardName[5]].ClickDetector)
-    end)
-      else 
-        NotifyLib.prompt('Notify', 'No shard found! you probably did collect it all before.', 2)
-    end
-  end,
-  })
- 
-local Toggle = Tab:CreateToggle({
-        Name = "AutoRemove door",
-        Info = {
-            Title = 'remove door',
-            Image = '12735851647',
-            Description = "Remove the anoying dor",
-        },
-        CurrentValue = false,
-        Flag = "autoremove door", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-        Callback = function(Value)
-            _G.Toggle = Value 
-        while _G.Toggle do wait() 
-          if Workspace:FindFirstChild("Door") then 
-               Workspace:FindFirstChild("Door"):Destroy()
+               end
             end
-          end 
-        end,
-    })
-  
-local CoinsEan = game.Players.LocalPlayer.leaderstats.Coins.Value
-while wait() do 
-  GoldEarned:Set("Coins Earned: " .. game.Players.LocalPlayer.leaderstats.Coins.Value - CoinsEan)
-  servershutdown:Set("ServerShutdownTimer: ".. game.Workspace.Values.ServerTime.Value)
-  
-end
-if game.Workspace.Values.ServerTime.Value <= 10 then 
-    NotifyLib.prompt('Notify', 'Server Shutdown. | ServerHopping. . .', 2)
- end
-setfpscap(math.huge)
+            settings().Physics.AllowSleep = false
+            settings().Physics.ThrottleAdjustTime = math.huge - math.huge
+         end)
+      elseif repsosowown then
+ повторное включение:Отключить()
+ Игра.Игроки.Локальный игрок.Персонаж.HumanoidRootPart.Закрепленный = false
+         конец
+      конец)
+   конец,
+})
+локальный переключатель = Вкладка:CreateToggle({
+ Name = "Спам True Paolo",
+ Текущее значение = false,
+ Флаг = "SpanTurePoalo",
+ Обратный вызов = функция(t)
+   если t, то
+     повторить
+ подождать(1)
+ детектор фейерверков(игра.Рабочее пространство:FindFirstChild("Пабло").ClickDetector)
+       пока t == false
+     конец
+   конец,
+})
+local CoinsEan = игра.Игроки.Локальный игрок.статистика лидеров.Монеты.Стоимость
  
---Ac Momento Real 99% 🤯
-local gameMetaTable = getrawmetatable(game)
-setreadonly(gameMetaTable, false)
-local oldNameCall = gameMetaTable.__namecall
-gameMetaTable.__namecall = newcclosure(function(self, ...)
-    local method = getnamecallmethod()
-    if method == "FireServer" or method == "InvokeServer" and self.Name == "Exploiter" or self.Name == "AdminPanelHandler" and self.Parent == game.ReplicatedStorage then
-        return nil
-    end
-    return oldNameCall(self, ...)
-end)
- 
-setreadonly(gameMetaTable, true)
+пока ждите(1) делайте 
+ Получено золото:Набор("Заработанные монеты" .. игра.Игроки.Локальный игрок.статистика лидеров.Монеты.Значение - CoinsEan)
+  конец
+setfpscap(60)
